@@ -1,9 +1,3 @@
-public class Main {
-    public static void main(String[] args) {
-        task1();
-
-    }
-
 //    Напишите небольшой библиотечный справочник, где хранится информация о книгах.
 //    Рекомендуем создать отдельный класс, например с именем Main или App — в нем объявить метод main и в нем протестировать работу вашего кода.
 //    Создайте класс Book, который содержит в себе данные о названии, авторе и годе публикации книги.
@@ -19,45 +13,21 @@ public class Main {
 //    В том же методе main измените год публикации одной из книг с помощью сеттера.
 //    Так как вы изучили геттеры и сеттеры, оставлять поля открытыми, без модификатора доступа private, недопустимо.
 
-    public static void task1() {
+
+public class Main {
+    public static void main(String[] args) {
         System.out.println("Задача 1");
-    }
-}
-public class Book {
-    String title;
-    String author;
-    int year;
+        Author author1 = new Author("Лев", "Толстой");
+        Author author2 = new Author("Михаил", "Булгаков");
+//        System.out.println("author1 = " + author1.getFirstName() + " " + author1.getLastName());
+//        System.out.println("author2 = " + author2.getFirstName() + " " + author2.getLastName());
+        Book book1 = new Book("Война и Мир", author1, 1869);
+        Book book2 = new Book("Мастер и Маргаита", author2, 1940);
 
-    public Book(String title, String author, int year) {
-        this.title = title;
-        this.author = author;
-        this.year = year;
-    }
+        System.out.println("book1 - " + book1.getTitle() + ", " + author1.getFirstName() + " " + author1.getLastName() + ", " + book1.getYear());
+        System.out.println("book2 - " + book2.getTitle() + ", " + author2.getFirstName() + " " + author2.getLastName() + ", " + book2.getYear());
 
-    public String getTitle() {
-        return this.title;
-    }
-    public String getAuthor() {
-        return this.author;
-    }
-    public int getYear() {
-        return this.year;
-    }
-}
-
-public class Author {
-    String firstName;
-    String lastName;
-
-    public Author(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
-
-    public String getFirstName() {
-        return this.firstName;
-    }
-    public String getLastName() {
-        return this.lastName;
+        book1.setYear(1870);
+        System.out.println("Год публикации книги " + book1.getTitle() + " изменен на " + book1.getYear());
     }
 }
